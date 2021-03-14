@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "588206545736",
+    "project_id": "flutterweb3",
+    "storage_bucket": "flutterweb3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588206545736:android:f82abab4f3aac1950cb17d",
+        "android_client_info": {
+          "package_name": "com.dartdapp.flutter_wallet_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "588206545736-enu2thhngl521tidtvcmjv8uuu348nro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVETkoRPOwaBsrgcB08qUg7hEjrIlqIEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "588206545736-enu2thhngl521tidtvcmjv8uuu348nro.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

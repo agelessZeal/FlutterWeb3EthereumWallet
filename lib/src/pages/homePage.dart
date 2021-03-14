@@ -161,8 +161,14 @@ class _HomePageState extends State<HomePage> {
 
     String balanceStr =  (result.first / BigInt.from(1000000000000000000)).toString();
     print(balanceStr);
+
     setState(() {
       tokenBalance  = balanceStr.length > 10 ? balanceStr.substring(0,9):balanceStr;
+      setState(() {
+        if(!contains(Asset('GNUS', 18, tokenBalance))){
+          assets.add(Asset('GNUS', 18, tokenBalance));
+        }
+      });
     });
     // List<dynamic> result1 = await query("symbol", []);
     // print('getTokenBalance symbol query result1');
@@ -264,6 +270,7 @@ class _HomePageState extends State<HomePage> {
       final address = await private.extractAddress();
       EtherAmount balance = await ethClient.getBalance(address);
       Asset asset = new Asset('ETH', 18,  balance.getValueInUnit(EtherUnit.ether).toString());
+
       setState(() {
         walletKey = privateKey;
         walletAddress = address;
@@ -271,16 +278,15 @@ class _HomePageState extends State<HomePage> {
         errors = null;
         gasPrice = gas.getValueInUnit(EtherUnit.gwei).toString() + ' gwei';
         transferError = [];
-        assets.add(asset);
         selectedAsset = asset;
+        if(!contains(asset)){
+          assets.add(asset);
+        }
       });
 
       if(selectedNetwork != null && selectedNetwork.chainId == 42){
         if(address != null ){
           await this.getTokenBalance(address);
-          setState(() {
-            assets.add(Asset('GNUS', 18, tokenBalance));
-          });
         }
       }
     } catch (e) {
